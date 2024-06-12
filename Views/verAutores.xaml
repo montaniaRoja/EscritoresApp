@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="EscritoresApp.Views.verAutores"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:convert="clr-namespace:EscritoresApp.Controllers"
+    Title="Lista de Autores">
+    <ContentPage.Resources>
+        <convert:Base64Image x:Key="BaseArray" />
+    </ContentPage.Resources>
+    <ScrollView>
+        <StackLayout>
+            <SearchBar
+                x:Name="searchBar"
+                Margin="10,0,10,20"
+                Placeholder="Buscar Autores"
+                SearchButtonPressed="searchBar_SearchButtonPressed"
+                TextChanged="searchBar_TextChanged" />
+
+            <CollectionView
+                x:Name="collectionView"
+                HorizontalOptions="Center"
+                SelectionMode="Single"
+                VerticalOptions="Center">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label
+                                Grid.Column="0"
+                                Margin="50,0,20,10"
+                                HorizontalOptions="Center"
+                                Text="{Binding Id}"
+                                VerticalOptions="CenterAndExpand" />
+
+                            <Image
+                                Grid.Column="1"
+                                Margin="0,0,0,0"
+                                Aspect="AspectFill"
+                                HeightRequest="100"
+                                HorizontalOptions="FillAndExpand"
+                                Source="{Binding Foto, Converter={StaticResource BaseArray}}"
+                                VerticalOptions="CenterAndExpand"
+                                WidthRequest="100" />
+
+                            <Label
+                                Grid.Column="2"
+                                Margin="10,0,10,10"
+                                HorizontalOptions="Center"
+                                Text="{Binding Nombres}"
+                                VerticalOptions="CenterAndExpand" />
+
+                            <Label
+                                Grid.Column="3"
+                                Margin="0,0,20,10"
+                                HorizontalOptions="Center"
+                                Text="{Binding Nacionalidad, StringFormat='({0})'}"
+                                VerticalOptions="CenterAndExpand" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Button
+                x:Name="btnRegresar"
+                Margin="0,50,0,10"
+                Clicked="btnRegresar_Clicked"
+                HorizontalOptions="Center"
+                SemanticProperties.Hint="Regresar a Menu Principal"
+                Text="Regresar" />
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EscritoresApp.Views.nuevoAutor"
+             Title="">
+
+    <ScrollView>
+
+        <VerticalStackLayout Padding="30,0" Spacing="20">
+            <Label
+                Margin="5,5,5,5"
+                FontAttributes="Bold"
+                FontSize="Title"
+                HorizontalOptions="Center"
+                SemanticProperties.HeadingLevel="Level1"
+                Text="Biblioteca UTH" />
+
+            <Label
+                Margin="5,5,5,5"
+                FontAttributes="Bold"
+                FontSize="Subtitle"
+                HorizontalOptions="Center"
+                SemanticProperties.HeadingLevel="Level1"
+                Text="Autores de Libros" />
+
+            <Image
+                x:Name="imgFoto"
+                Aspect="AspectFit"
+                HeightRequest="150"
+                HorizontalOptions="CenterAndExpand"
+                Source="gato.jpg"
+                VerticalOptions="CenterAndExpand"
+                WidthRequest="150" />
+
+            <Button
+                x:Name="btnfoto"
+                Margin="5,5,5,5"
+                Clicked="btnfoto_Clicked"
+                HorizontalOptions="Fill"
+                SemanticProperties.Hint="Agregar"
+                Text="Tomar Foto" />
+
+
+                <Entry
+                    x:Name="txtNombres"
+                    Margin="5,5,5,5"
+                    FontAttributes="Bold"
+                    FontSize="Body"
+                    HorizontalOptions="Fill"
+                    Keyboard="Text"
+                    Placeholder="Nombre y Apellido"
+                    />
+
+            
+
+            <Picker
+                x:Name="countryPicker"
+                Title="Seleccione la Nacionalidad"
+                SelectedIndexChanged="countryPicker_SelectedIndexChanged" />
+
+            <Button
+                x:Name="btnAgregar"
+                Margin="0,50,0,0"
+                Clicked="btnAgregar_Clicked"
+                HorizontalOptions="Fill"
+                SemanticProperties.Hint="Agregar"
+                Text="Agregar" />
+
+            <Button
+                x:Name="btnRegresar"
+                Margin="0,0,0,5"
+                Clicked="btnRegresar_Clicked"
+                HorizontalOptions="Fill"
+                SemanticProperties.Hint="Regresar a Menu Principal"
+                Text="Regresar" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
